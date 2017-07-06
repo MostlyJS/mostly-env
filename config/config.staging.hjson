@@ -1,0 +1,7 @@
+{
+  // specific property
+  stagingKey: 'staging',
+
+  // overide property
+  host: 'api-staging.mostlyjs.org',
+}

@@ -1,0 +1,7 @@
+{
+  // specific property
+  userKey: 'user',
+
+  // overide property
+  host: 'api-user.mostlyjs.org',
+}

@@ -1,0 +1,7 @@
+{
+  // specific property
+  devKey: 'dev',
+
+  // overide property
+  host: 'api-dev.mostlyjs.org',
+}

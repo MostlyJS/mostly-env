@@ -1,0 +1,7 @@
+{
+  // specific property
+  defaultKey: 'default',
+
+  // overide property
+  host: 'api.mostlyjs.org',
+}
