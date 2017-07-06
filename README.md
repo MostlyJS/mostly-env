@@ -9,7 +9,7 @@ Mostly microservice runtime environment module for
 * Error Reporter
 * Redis Sentinel
 * Statistics
-* Error Hnadling
+* Error Handling
 
 # Usage
 
