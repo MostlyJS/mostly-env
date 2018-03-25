@@ -7,7 +7,7 @@ import path from 'path';
  *
  * Returns "mostly-webapp-1"
  */
-export function getFullProcessName() {
+export function getFullProcessName () {
   var upstartJob = process.env.UPSTART_JOB || process.env.JOB;
   if (upstartJob) return upstartJob;
 
@@ -18,12 +18,12 @@ export function getFullProcessName() {
 }
 
 /* Returns "mostly-webapp" */
-export function getGenericProcessName(){
+export function getGenericProcessName (){
   return getFullProcessName().replace(/\-\d*$/,'');
 }
 
 /* Returns "webapp" */
-export function getShortProcessName(){
+export function getShortProcessName (){
   return getGenericProcessName().replace(/^mostly-/, '');
 }
 

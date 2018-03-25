@@ -1,4 +1,4 @@
-export default function transformMeta(meta, depth) {
+export default function transformMeta (meta, depth) {
   if (typeof meta !== 'object') {
     return meta;
   }
@@ -7,7 +7,7 @@ export default function transformMeta(meta, depth) {
 
   if(!depth) depth = 0;
 
-  function transformValue(value) {
+  function transformValue (value) {
     if(value === undefined) return;
 
     if(value instanceof Error) {
@@ -37,7 +37,7 @@ export default function transformMeta(meta, depth) {
     }
   }
 
-  var result = Object.keys(meta).reduce(function(result, key) {
+  var result = Object.keys(meta).reduce(function (result, key) {
     var value = transformValue(meta[key]);
     if(value !== undefined) {
       result[key] = value;

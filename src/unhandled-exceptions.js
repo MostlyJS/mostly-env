@@ -1,10 +1,10 @@
 import shutdown from 'shutdown';
 
-export function create(options) {
+export function create (options) {
   var winston = options.logger;
   var errorReporter = options.errorReporter;
 
-  return function dealWithUnhandledError(err) {
+  return function dealWithUnhandledError (err) {
     try {
       errorReporter(err, { type: 'uncaught' });
 

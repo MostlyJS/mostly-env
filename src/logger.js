@@ -1,25 +1,25 @@
-function createWinstonContainer(config) {
+function createWinstonContainer (config) {
   var winston = require("winston");
-  var processName = require('./process-name')
+  var processName = require('./process-name');
 
-  function getTransports() {
+  function getTransports () {
     var results = [];
 
     if(config.getBool("logging:logToUDP")) {
       var appName = processName.getGenericProcessName();
 
       if (appName) {
-        require('winston-udp')
-        var os = require('os')
+        require('winston-udp');
+        var os = require('os');
 
         var udpTransport = new winston.transports.UDP({
           host: config.get("logging:udpHost") || '127.0.0.1',
           port: config.get("logging:udpPort") || 24224,
           level: config.get("logging:level"),
-          timestamp: function() {
+          timestamp: function () {
             return Date.now();
           },
-          formatter: function(options) {
+          formatter: function (options) {
             return JSON.stringify({
               "app": appName,
               "env": process.env.NODE_ENV,
@@ -56,7 +56,7 @@ function createWinstonContainer(config) {
   return container;
 }
 
-export function create(options) {
+export function create (options) {
   var transformMeta = require('./transform-meta');
 
   var config = options.config;
@@ -70,7 +70,7 @@ export function create(options) {
   // });
 
   var loggers = {};
-  function get(category) {
+  function get (category) {
     if (loggers[category]) {
       return loggers[category];
     }
@@ -111,7 +111,7 @@ export function create(options) {
       }
     });
 
-    logger.rewriters.push(function(level, msg, meta) {
+    logger.rewriters.push(function (level, msg, meta) {
       meta = transformMeta(meta);
       if (category) {
         meta.category = category;

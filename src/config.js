@@ -3,7 +3,7 @@ import hjson from 'hjson';
 import nconf from 'nconf';
 import path from 'path';
 
-function configureNodeEnv() {
+function configureNodeEnv () {
   var nodeEnv = process.env.NODE_ENV;
   if (nodeEnv) return nodeEnv;
 
@@ -13,7 +13,7 @@ function configureNodeEnv() {
 }
 
 /* Factory */
-export function create(configDirectory) {
+export function create (configDirectory) {
 
   /* Load configuration parameters */
   var nodeEnv = configureNodeEnv();
@@ -50,28 +50,28 @@ export function create(configDirectory) {
     format: hjson
   });
 
-  process.on('SIGHUP', function() {
+  process.on('SIGHUP', function () {
     return Promise.map([
       nconf.stores.user,
       nconf.stores.nodeEnv,
       nconf.stores.defaults
-    ], function(store) {
-      return Promise.fromCallback(function(callback) {
+    ], function (store) {
+      return Promise.fromCallback(function (callback) {
         return store.load(callback);
       });
     })
-    .then(function() {
+    .then(function () {
       nconf.events.emit('reload');
       return null;
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log('gitter-config: Reload failed: ' + err, err);
     });
   });
 
   nconf.runtimeEnvironment = nodeEnv;
 
-  function parseBool(value) {
+  function parseBool (value) {
     switch(typeof value) {
       case 'boolean':
         return value;
@@ -87,10 +87,10 @@ export function create(configDirectory) {
   /**
    * Monkey-patch `getBool`
    */
-  nconf.getBool = function(key) {
+  nconf.getBool = function (key) {
     var value = this.get(key);
     return parseBool(value);
-  }
+  };
 
   return nconf;
 }
