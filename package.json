@@ -26,6 +26,7 @@
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
     "debug": "^2.6.6",
+    "esm": "^3.0.14",
     "heapdump": "^0.3.9",
     "hjson": "^2.4.3",
     "lodash": "^4.17.4",
