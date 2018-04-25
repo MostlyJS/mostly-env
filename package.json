@@ -1,6 +1,6 @@
 {
   "name": "mostly-env",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Mostly microservice runtime environment module",
   "author": "Forafish",
   "license": "MIT",
