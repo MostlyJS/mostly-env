@@ -11,6 +11,10 @@ Mostly microservice runtime environment module for
 * Statistics
 * Error Handling
 
+# Documentation
+
+Please see the [documentation site](https://mostlyjs.github.io).
+
 # Usage
 
 ## Installation
