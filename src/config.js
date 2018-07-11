@@ -1,7 +1,7 @@
-import { EventEmitter } from 'events';
-import hjson from 'hjson';
-import nconf from 'nconf';
-import path from 'path';
+const { EventEmitter } = require('events');
+const hjson = require('hjson');
+const nconf = require('nconf');
+const path = require('path');
 
 function configureNodeEnv () {
   var nodeEnv = process.env.NODE_ENV;
@@ -13,7 +13,7 @@ function configureNodeEnv () {
 }
 
 /* Factory */
-export function create (configDirectory) {
+module.exports = function create (configDirectory) {
 
   /* Load configuration parameters */
   var nodeEnv = configureNodeEnv();
@@ -93,4 +93,4 @@ export function create (configDirectory) {
   };
 
   return nconf;
-}
+};

@@ -1,4 +1,4 @@
-export default function create (configDirectory) {
+module.exports = function create (configDirectory) {
   const config = require('./config').create(configDirectory);
   const logger = require('./logger').create({ config: config });
 

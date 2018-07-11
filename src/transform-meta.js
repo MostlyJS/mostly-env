@@ -1,4 +1,4 @@
-export default function transformMeta (meta, depth) {
+module.exports = function transformMeta (meta, depth) {
   if (typeof meta !== 'object') {
     return meta;
   }

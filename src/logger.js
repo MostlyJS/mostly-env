@@ -56,7 +56,7 @@ function createWinstonContainer (config) {
   return container;
 }
 
-export function create (options) {
+module.exports = function create (options) {
   var transformMeta = require('./transform-meta');
 
   var config = options.config;

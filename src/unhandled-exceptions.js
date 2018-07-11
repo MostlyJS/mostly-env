@@ -1,6 +1,6 @@
-import shutdown from 'shutdown';
+const shutdown = require('shutdown');
 
-export function create (options) {
+module.exports = function create (options) {
   var winston = options.logger;
   var errorReporter = options.errorReporter;
 

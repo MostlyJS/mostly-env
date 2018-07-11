@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 /**
  * These functions are used to determine the current app name.
@@ -7,7 +7,7 @@ import path from 'path';
  *
  * Returns "mostly-webapp-1"
  */
-export function getFullProcessName () {
+function getFullProcessName () {
   var upstartJob = process.env.UPSTART_JOB || process.env.JOB;
   if (upstartJob) return upstartJob;
 
@@ -18,12 +18,17 @@ export function getFullProcessName () {
 }
 
 /* Returns "mostly-webapp" */
-export function getGenericProcessName (){
+function getGenericProcessName (){
   return getFullProcessName().replace(/\-\d*$/,'');
 }
 
 /* Returns "webapp" */
-export function getShortProcessName (){
+function getShortProcessName (){
   return getGenericProcessName().replace(/^mostly-/, '');
 }
 
+module.exports = {
+  getFullProcessName,
+  getGenericProcessName,
+  getShortProcessName
+};
